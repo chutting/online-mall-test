@@ -1,0 +1,34 @@
+@import "@/styles/variables";
+
+.container {
+  display: flex;
+  margin: 0 auto;
+
+  .image {
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  }
+
+  .info {
+    margin-left: 40px;
+    
+    h1 {
+      font-size:  @font-size-lg;
+    }
+
+    h2 {
+      font-size: @font-size-base;
+      color: @grey-1;
+    }
+
+    .priceContainer {
+      margin: 14px 0;
+      font-weight: bold;
+      font-size: @font-size-base;
+
+      .price {
+        color: @red;
+      }
+    }
+  }
+}

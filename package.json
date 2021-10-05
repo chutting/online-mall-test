@@ -41,14 +41,9 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn lint && yarn test",
+      "pre-commit": "yarn lint && yarn test",
       "commit-msg": "./commit-msg.sh $HUSKY_GIT_PARAMS"
     }
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix"
-    ]
   },
   "eslintConfig": {
     "extends": [

@@ -9,7 +9,7 @@ export const routerConfig = [
   },
   {
     name: '订单创建',
-    path: '/order-create/:sku',
+    path: '/order-create',
     component: OrderCreate,
   },
 ]
