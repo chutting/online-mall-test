@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { ConfigProvider } from 'antd'
+import '@/styles/index.less'
 import App from './App'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ConfigProvider>
     <App />
-  </React.StrictMode>,
+  </ConfigProvider>,
   document.getElementById('root')
 )
