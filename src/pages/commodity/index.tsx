@@ -27,7 +27,7 @@ const Commodity = () => {
     getCommodityDetail(sku).then((data) => {
       setCommodity(data)
     })
-  })
+  }, [])
 
   const handleBuyNow = () => {
     globalDispatch({ type: actions.SET_COMMODITY, payload: commodity })

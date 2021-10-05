@@ -1,0 +1,50 @@
+@import "@/styles/variables";
+
+.container {
+  width: 400px;
+
+  .commodityInfo {
+    margin-bottom: 24px;
+    .name {
+      font-weight: bold;
+    }
+
+    .priceInfo {
+      display: flex;
+      margin-bottom: 24px;
+      
+      .priceLabel {
+        flex-shrink: 0;
+        margin-right: 20px;
+        font-size: @font-size-sm;
+        &::before {
+          content: '* ';
+          font-family: SimSun, sans-serif;
+          color: @red;
+        }
+      }
+      .price {
+        flex-shrink: 0;
+        margin-right: 10px;
+      }
+
+      .amount {
+        width: 100%;
+
+        .inValidInput {
+          border: 1px @red solid;
+        }
+      }
+    }
+
+    .inValid {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.invalidPrompt {
+  color: @red;
+  margin: 0;
+  line-height: 24px;
+}

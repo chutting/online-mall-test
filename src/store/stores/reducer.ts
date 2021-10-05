@@ -5,11 +5,12 @@ export type IState = {
 }
 
 const reducer = (state: IState, action: Action) => {
+  console.log(action)
   switch (action.type) {
     case actions.SET_COMMODITY:
       return {
         ...state,
-        profile: action.payload,
+        selectedCommdity: action.payload,
       }
     default:
       return state
