@@ -28,5 +28,4 @@
 ```
 ### commit message
 > rule
-* `[OMT-number] message`
-* `[feat|docs|fix|refactor|style|test] message`
+* `[username][feat|docs|fix|refactor|style|test]:#OMT-number message`
