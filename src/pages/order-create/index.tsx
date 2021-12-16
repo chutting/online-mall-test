@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { memo } from 'react'
 import Form from '@/components/form'
 import { useGlobalState } from '@/store/stores'

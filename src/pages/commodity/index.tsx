@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getCommodityDetail } from '@/service/apis/commodity'
 import { useParams, useHistory } from 'react-router-dom'
 import { Button, Image } from 'antd'
@@ -26,7 +26,7 @@ const Commodity = () => {
     getCommodityDetail(routeParams.sku).then((data) => {
       setCommodity(data)
     })
-  }, [])
+  }, [routeParams.sku])
 
   const handleBuyNow = () => {
     globalDispatch({ type: actions.SET_COMMODITY, payload: commodity })

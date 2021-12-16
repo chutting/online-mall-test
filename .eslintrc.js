@@ -15,10 +15,11 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-  ignorePatterns: ['.eslintrc.js', '/build', 'babel.config.js'],
+  ignorePatterns: ['.eslintrc.js', '/build', 'jest.config.js'],
   rules: {
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",

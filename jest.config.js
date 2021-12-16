@@ -1,15 +1,15 @@
-// eslint-disable-next-line no-undef
 module.exports = {
-  roots: ['./src'],
+  preset: 'ts-jest',
+  roots: ['<rootDir>/src'],
+  moduleDirectories: ['node_modules', 'src'],
   transform: {
-    '^.+\\.(ts|tsx)$': '<rootDir>/node_modules/babel-jest',
+    '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   clearMocks: true,
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/(*.)+(spec|test).[tj]s?(x)'],
   moduleFileExtensions: ['js', 'ts', 'tsx'],
-  globals: {
-    'ts-jest': {
-      tsConfig: './tsconfig.json',
-    },
-  },
+  testEnvironment: 'jsdom',
+  moduleNameMapper: {
+    '^.+\\.module\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$': 'identity-obj-proxy',
+  }
 }

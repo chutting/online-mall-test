@@ -1,5 +1,3 @@
-import React from 'react'
-
 const NotFound = () => {
   return <h1>This is 404 NOT FOUND page</h1>
 }
