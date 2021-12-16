@@ -20,7 +20,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "paths": {
       "@/*": [
         "src/*"
@@ -28,5 +28,10 @@
     }
   },
   "compileOnSave": false,
-  "include": ["./src"]
+  "include": ["./src"],
+  "exclude": [
+    "/node_modules/",
+    "**/__tests__/**/*.[jt]s?(x",
+    "**/(*.)(spec|test).[tj]s?(x)"
+  ]
 }

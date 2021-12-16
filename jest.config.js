@@ -2,8 +2,10 @@
 module.exports = {
   roots: ['./src'],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest', // 哪些文件需要用 ts-jest 执行
+    '^.+\\.(ts|tsx)$': '<rootDir>/node_modules/babel-jest',
   },
+  clearMocks: true,
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/(*.)+(spec|test).[tj]s?(x)'],
   moduleFileExtensions: ['js', 'ts', 'tsx'],
   globals: {
     'ts-jest': {

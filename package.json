@@ -1,6 +1,7 @@
 {
   "name": "online-mall-test",
   "version": "0.0.0",
+  "license": "ISC",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -16,7 +17,12 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.16.5",
     "@jest/types": "^27.2.4",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
     "@types/jest": "^27.0.2",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -44,43 +50,6 @@
     "hooks": {
       "pre-commit": "yarn lint && yarn test",
       "commit-msg": "./commit-msg.sh $HUSKY_GIT_PARAMS"
-    }
-  },
-  "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended",
-      "prettier"
-    ],
-    "env": {
-      "es6": true,
-      "jest": true
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
-    },
-    "plugins": [
-      "prettier"
-    ],
-    "rules": {
-      "@typescript-eslint/ban-ts-comment": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-var-requires": 0,
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/ban-types": "off",
-      "prettier/prettier": [
-        "error",
-        {
-          "semi": false,
-          "singleQuote": true,
-          "jsxSingleQuote": false,
-          "trailingComma": "es5",
-          "printWidth": 120
-        }
-      ]
     }
   }
 }
