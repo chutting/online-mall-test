@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "rootDir": ".",
     "types": [
       "vite/client",
       "jest",

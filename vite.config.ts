@@ -1,22 +1,9 @@
 import { defineConfig, loadEnv } from 'vite'
 import { resolve } from 'path'
 import createReactRefreshPlugin from '@vitejs/plugin-react-refresh'
-import createVitePluginImport from 'vite-plugin-import'
 
 const baseConfig = defineConfig({
-  plugins: [
-    createReactRefreshPlugin(),
-    createVitePluginImport({
-      onlyBuild: false,
-      babelImportPluginOptions: [
-        {
-          style: true,
-          libraryName: 'antd',
-          libraryDirectory: 'es',
-        },
-      ],
-    }),
-  ],
+  plugins: [createReactRefreshPlugin()],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
