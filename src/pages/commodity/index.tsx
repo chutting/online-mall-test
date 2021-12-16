@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getCommodityDetail } from '@/service/apis/commodity'
-import { useHistory } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { Button, Image } from 'antd'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import styles from './index.module.less'
@@ -8,6 +8,7 @@ import { useGlobalDispatch } from '@/store/stores'
 import { actions } from '@/store/stores/actions'
 
 const Commodity = () => {
+  const routeParams = useParams<{ sku: string }>()
   const history = useHistory()
   const globalDispatch = useGlobalDispatch()
   const [commodity, setCommodity] = useState<Commodity>({
@@ -22,9 +23,7 @@ const Commodity = () => {
   })
 
   useEffect(() => {
-    const pathname = history.location.pathname.split('/')
-    const sku = pathname[pathname.length - 1]
-    getCommodityDetail(sku).then((data) => {
+    getCommodityDetail(routeParams.sku).then((data) => {
       setCommodity(data)
     })
   }, [])

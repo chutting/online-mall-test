@@ -65,7 +65,7 @@ const OrderCreate = () => {
 
   useEffect(() => {
     setTotalPrice(sumCalculator(selectedCommdity.price, amount))
-  }, [])
+  }, [selectedCommdity.price, amount])
 
   const handleAmountChange = (e) => {
     const number = e.target.value.replace(/\D/, '').replace(/^0/, '')

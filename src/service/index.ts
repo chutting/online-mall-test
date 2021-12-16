@@ -1,7 +1,5 @@
 import axios from 'axios'
 
-export const dingtalk = axios.create({})
-
 const request = axios.create({
   baseURL: '/online-mall/api',
 })
