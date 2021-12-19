@@ -3,8 +3,7 @@ interface Commodity {
   name: string
   description: string
   price: string
-  image: {
-    url: string
-    thumbnailUrl: string
-  }
+  images: string[]
+  commentsCount: number
+  salesCount: number
 }

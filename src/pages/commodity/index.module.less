@@ -2,12 +2,8 @@
 
 .container {
   display: flex;
-  margin: 0 auto;
-
-  .image {
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-  }
+  width: 1190px;
+  margin: 20px auto;
 
   .info {
     margin-left: 40px;
@@ -30,5 +26,52 @@
         color: @red;
       }
     }
+
+    .salesInfo {
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 14px;
+
+      border: 1px dotted @grey-2;
+      border-left: transparent;
+      border-right: transparent;
+      .salesInfoItem {
+        width: 50%;
+        text-align: center;
+        font-size: @font-size-xs;
+        color: @grey-4;
+        &:first-child {
+          border-right: 1px solid @grey-3;
+        }
+        .value {
+          color: @red;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .thumbnailContainer {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+
+      .thumbnail {
+        margin-right: 16px;
+        width: 60px;
+        height: 60px;
+        border: 2px solid transparent;
+      }
+
+      .selected {
+        border: 2px solid @black;
+      }
+    }
+  }
+
+  .preview {
+    border-radius: 4px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
   }
 }

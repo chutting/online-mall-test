@@ -1,0 +1,30 @@
+@import "@/styles/variables";
+
+.header {
+  left: 0;
+  top: 0;
+  right: 0;
+  position: fixed;
+  z-index: @header-z-index;
+  box-shadow: rgb(0, 0, 0, 0.2) 0 1px 5px 0;
+  background-color: @white;
+
+  .headerContainer {
+    margin: 0 auto;
+    width: 1190px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      font-size: @font-size-xxl;
+      cursor: pointer;
+    }
+  }
+}
+
+.main {
+  position: relative;
+  width: 1190px;
+  margin: 100px auto;
+}

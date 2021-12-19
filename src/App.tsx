@@ -1,15 +1,19 @@
-import { Route } from 'react-router-dom'
-import Header from '@/components/header'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import NotFound from '@/pages/not-found'
-import Home from './pages/home'
+import BasicLayout from '@/components/basicLayout'
+import { routerConfig } from './routes'
 
 function App() {
   return (
-    <>
-      <Header />
+    <BasicLayout>
       <Route path="/404" exact component={NotFound} />
-      <Route path="/" component={Home} />
-    </>
+      <Switch>
+        {routerConfig.map((route) => {
+          return <Route exact path={route.path} key={route.name} component={route.component} />
+        })}
+        <Redirect to="/404" />
+      </Switch>
+    </BasicLayout>
   )
 }
 

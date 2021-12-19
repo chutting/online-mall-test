@@ -1,50 +1,86 @@
 @import "@/styles/variables";
 
 .container {
-  width: 400px;
+  .shippingForm {
+    width: 400px;
+  }
 
   .commodityInfo {
     margin-bottom: 24px;
-    .name {
-      font-weight: bold;
-    }
 
-    .priceInfo {
-      display: flex;
-      margin-bottom: 24px;
+    .commodityContent {
+      width: 800px;
       
-      .priceLabel {
-        flex-shrink: 0;
-        margin-right: 20px;
-        font-size: @font-size-sm;
-        &::before {
-          content: '* ';
-          font-family: SimSun, sans-serif;
+      .colTitle {
+        margin-right: 1px;
+        height: 24px;
+        line-height: 24px;
+        border-bottom: 3px solid @blue-border;
+        font-size: @font-size-xs;
+        text-align: center;
+        color: @grey-5;
+      }
+
+      .colDetails {
+        display: flex;
+        height: 100%;
+        background-color: @blue-background-2;
+        padding: 10px;
+        font-size: @font-size-xs;
+        color: @grey-6;
+        .thumbnail {
+          width: 50px;
+          margin-right: 10px;
+        }
+
+        .amount {
+          width: 100%;
+          height: fit-content;
+        }
+      } 
+    }
+  }
+
+  .submit {
+    background-color: @red;
+    color: @white;
+    width: 182px;
+    height: 40px;
+    border-color: transparent;
+  }
+
+  .sectionTitle {
+    height: 30px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    line-height: 30px;
+    color: @blue;
+    background-color: @blue-background-1;
+    font-size: @font-size-sm;
+  }
+
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .totalPriceContainer {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      background-color: @orange;
+      .title {
+        font-weight: bold;
+      }
+      .totalPrice {
+        font-size: @font-size-xl;
+        color: @grey-4;
+
+        .value {
           color: @red;
         }
       }
-      .price {
-        flex-shrink: 0;
-        margin-right: 10px;
-      }
-
-      .amount {
-        width: 100%;
-
-        .inValidInput {
-          border: 1px @red solid;
-        }
-      }
-    }
-
-    .inValid {
-      margin-bottom: 0;
     }
   }
-}
-
-.invalidPrompt {
-  color: @red;
-  margin: 0;
-  line-height: 24px;
 }
