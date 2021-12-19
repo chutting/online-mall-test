@@ -72,7 +72,7 @@ const OrderCreate = () => {
     setTotalPrice(sumCalculator(selectedCommdity.price, amount))
   }, [selectedCommdity.price, amount])
 
-  const handleAmountChange = (value) => {
+  const handleAmountChange = (value: number) => {
     setAmount(Math.floor(value) ?? 1)
     setTotalPrice(sumCalculator(selectedCommdity.price, value))
   }

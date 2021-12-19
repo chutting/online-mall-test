@@ -1,17 +1,37 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
     "outDir": "dist",
     "target": "ES2019",
     "module": "commonjs",
     "moduleResolution": "Node",
-    "strict": true,
-    "declaration": true,
-    "sourceMap": true,
-    "noUnusedLocals": true,
+    "allowJs": true,
+    "checkJs": true,
+    "alwaysStrict": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "preserveConstEnums": true,
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "types": [
+      "node",
+      "jest"
+    ],
   },
   "compileOnSave": false,
-  "include": ["./src"],
+  "include": ["./src", "global.d.ts"],
   "exclude": [
     "/node_modules/",
     "**/__tests__/**/*.[jt]s?(x",

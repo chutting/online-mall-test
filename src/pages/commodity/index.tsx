@@ -39,7 +39,7 @@ const Commodity = () => {
     history.push(ROUTE_PATH.ORDER_CREATE)
   }
 
-  const handleShowImage = (index, url) => {
+  const handleShowImage = (index: number, url: string) => {
     setSelectedImage({ index, url })
   }
 
