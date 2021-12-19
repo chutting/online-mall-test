@@ -1,8 +1,7 @@
 import { defineConfig, loadEnv } from 'vite'
 import { resolve } from 'path'
-import createReactRefreshPlugin from '@vitejs/plugin-react-refresh'
-import react from '@vitejs/plugin-react'
 import createVitePluginImport from 'vite-plugin-import'
+import createReactRefreshPlugin from '@vitejs/plugin-react-refresh'
 
 const baseConfig = defineConfig({
   plugins: [
@@ -17,7 +16,6 @@ const baseConfig = defineConfig({
         },
       ],
     }),
-    react(),
   ],
   resolve: {
     alias: {
@@ -30,6 +28,9 @@ const baseConfig = defineConfig({
         javascriptEnabled: true,
       },
     },
+  },
+  esbuild: {
+    jsxInject: `import React from 'react'`,
   },
 })
 

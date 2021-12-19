@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { GlobalProvider } from './stores'
 
 const providers = [GlobalProvider]

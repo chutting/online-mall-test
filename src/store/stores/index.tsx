@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from 'react'
+import { createContext, useContext, useReducer } from 'react'
 import reducer, { IState } from './reducer'
 import { Action } from './actions'
 import { IProps } from '..'
