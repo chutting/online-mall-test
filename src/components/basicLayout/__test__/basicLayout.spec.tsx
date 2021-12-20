@@ -9,7 +9,7 @@ jest.mock('react-router', () => ({
   }),
 }))
 
-describe('basicInfo components test', () => {
+describe('basicLayout components test', () => {
   it('should take a snapshot', () => {
     const { asFragment } = render(<BasicLayout />)
     expect(asFragment()).toMatchSnapshot()

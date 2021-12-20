@@ -1,20 +1,19 @@
-import { Form, Input, InputNumber } from 'antd'
-import { FormInstance } from 'antd/lib/form'
+import { Form, FormInstance, Input, InputNumber } from 'antd'
 
 interface formItem {
   name: string[] | string
   placeholder?: string
   type: string
-  rules: any[]
+  rules?: any[]
+  label?: string
   rest?: unknown
-  label: string
 }
 
 interface IProps {
   formConfig: formItem[]
-  form: FormInstance
+  form?: FormInstance
   onFinish: (values) => void
-  className: string
+  className?: string
 }
 
 const CustomForm = ({ formConfig, form, onFinish, className }: IProps) => {
@@ -22,21 +21,11 @@ const CustomForm = ({ formConfig, form, onFinish, className }: IProps) => {
     <Form form={form} onFinish={onFinish} labelCol={{ span: 5 }} labelAlign="left" className={className}>
       {formConfig.map(({ name, rules, placeholder, type, label, rest }) => (
         <div key={label}>
-          {type === 'input' && (
-            <Form.Item label={label} name={name} rules={rules}>
-              <Input placeholder={placeholder} />
-            </Form.Item>
-          )}
-          {type === 'inputNumber' && (
-            <Form.Item key={label} label={label} name={name} rules={rules}>
-              <InputNumber />
-            </Form.Item>
-          )}
-          {type === 'textArea' && (
-            <Form.Item key={label} label={label} name={name} rules={rules}>
-              <Input.TextArea placeholder={placeholder} {...rest} />
-            </Form.Item>
-          )}
+          <Form.Item label={label} name={name} rules={rules}>
+            {type === 'input' && <Input placeholder={placeholder} {...rest} />}
+            {type === 'inputNumber' && <InputNumber />}
+            {type === 'textArea' && <Input.TextArea placeholder={placeholder} {...rest} />}
+          </Form.Item>
         </div>
       ))}
     </Form>

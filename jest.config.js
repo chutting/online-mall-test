@@ -11,5 +11,5 @@ module.exports = {
   moduleNameMapper: {
     '^.+\\.module\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$': 'identity-obj-proxy',
     '^@/(.*)$': '<rootDir>/src/$1',
-  }
+  },
 }

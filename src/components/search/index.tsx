@@ -1,9 +1,13 @@
 import { Input } from 'antd'
 import styles from './index.module.less'
 
-const Search = () => {
+interface Props {
+  onSearch: (value: string) => void
+}
+
+const Search = ({ onSearch }: Props) => {
   const handleSearch = (value) => {
-    console.log(`search ${value}`)
+    onSearch(value)
   }
 
   return <Input.Search placeholder="I am a search" onSearch={handleSearch} className={styles.search} />

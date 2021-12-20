@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react'
 import { memo } from 'react'
 import CustomForm from '@/components/form'
 import { useGlobalState } from '@/store/stores'
-import { Button, message, Row, Col, Image, InputNumber } from 'antd'
+import { Button, message, Row, Col, Image, InputNumber, Form } from 'antd'
 import { ORDER_STATUS } from '@/constants/orderStatus'
 
 import styles from './index.module.less'
-import { useForm } from 'antd/lib/form/Form'
 import { createOrder } from '@/service/apis/order'
 import { sumCalculator } from '@/utils/sumCalculator'
 import { generatePath, useHistory } from 'react-router'
@@ -50,7 +49,7 @@ const OrderCreate = () => {
   const [amount, setAmount] = useState<number>(1)
   const history = useHistory()
   const [totalPrice, setTotalPrice] = useState<string>('')
-  const [form] = useForm()
+  const [form] = Form.useForm()
   const handleFinish = (values) => {
     const { sku, price } = selectedCommdity
     createOrder({ sku, price, ...values, totalPrice, number: amount })

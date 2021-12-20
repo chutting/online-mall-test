@@ -10,6 +10,10 @@ const BasicLayout = ({ children }: PropsWithChildren<{}>) => {
     history.push(ROUTE_PATH.HOME)
   }
 
+  const handleSearch = (value: string) => {
+    console.log(value)
+  }
+
   return (
     <>
       <header className={styles.header}>
@@ -17,7 +21,7 @@ const BasicLayout = ({ children }: PropsWithChildren<{}>) => {
           <div className={styles.logo} onClick={handleGoToHome}>
             TW ONLINE MALL
           </div>
-          <Search />
+          <Search onSearch={handleSearch} />
         </div>
       </header>
       <main className={styles.main}>{children}</main>
