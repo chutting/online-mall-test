@@ -7,7 +7,6 @@ const baseConfig = defineConfig({
   plugins: [
     createReactRefreshPlugin(),
     createVitePluginImport({
-      onlyBuild: false,
       babelImportPluginOptions: [
         {
           style: true,

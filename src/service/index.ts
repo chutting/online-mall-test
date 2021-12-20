@@ -25,8 +25,9 @@ request.interceptors.response.use(
   },
   (e) => {
     if (e.response) {
-      const { status, data = {} } = e.response
+      const { status, data = {}, message } = e.response
 
+      message.error(message)
       return Promise.reject({
         status,
         ...data,
