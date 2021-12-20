@@ -22,9 +22,11 @@ const CustomForm = ({ formConfig, form, onFinish, className }: IProps) => {
       {formConfig.map(({ name, rules, placeholder, type, label, rest }) => (
         <div key={label}>
           <Form.Item label={label} name={name} rules={rules}>
-            {type === 'input' && <Input placeholder={placeholder} {...rest} />}
-            {type === 'inputNumber' && <InputNumber />}
-            {type === 'textArea' && <Input.TextArea placeholder={placeholder} {...rest} />}
+            <>
+              {type === 'input' && <Input placeholder={placeholder} {...rest} />}
+              {type === 'inputNumber' && <InputNumber />}
+              {type === 'textArea' && <Input.TextArea placeholder={placeholder} {...rest} />}
+            </>
           </Form.Item>
         </div>
       ))}
