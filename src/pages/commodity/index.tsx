@@ -1,18 +1,15 @@
 import { useEffect, useMemo, useState } from 'react'
 import cls from 'classnames'
 import { getCommodityDetail } from '@/service/apis/commodity'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, generatePath } from 'react-router-dom'
 import { Button, Image } from 'antd'
 import { ShoppingCartOutlined } from '@ant-design/icons'
-import styles from './index.module.less'
-import { useGlobalDispatch } from '@/store/stores'
-import { actions } from '@/store/stores/actions'
 import { ROUTE_PATH } from '@/routes'
+import styles from './index.module.less'
 
 const Commodity = () => {
   const routeParams = useParams<{ sku: string }>()
   const history = useHistory()
-  const globalDispatch = useGlobalDispatch()
   const [selectedImage, setSelectedImage] = useState<{ url: string | null; index: number }>({ url: null, index: 0 })
   const [commodity, setCommodity] = useState<Commodity>({
     sku: '',
@@ -35,8 +32,7 @@ const Commodity = () => {
   }, [routeParams.sku])
 
   const handleBuyNow = () => {
-    globalDispatch({ type: actions.SET_COMMODITY, payload: commodity })
-    history.push(ROUTE_PATH.ORDER_CREATE)
+    history.push(generatePath(ROUTE_PATH.ORDER_CREATE, { sku: commodity.sku }))
   }
 
   const handleShowImage = (index: number, url: string) => {

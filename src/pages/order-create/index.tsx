@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react'
 import { memo } from 'react'
 import { Button, message, Form } from 'antd'
 import CustomForm from '@/components/form'
-import { useGlobalState } from '@/store/stores'
 import { ORDER_STATUS } from '@/constants/orderStatus'
 import { createOrder } from '@/service/apis/order'
 import { sumCalculator } from '@/utils/sumCalculator'
 import CommodityInfo from './components/commodityInfo'
 import styles from './index.module.less'
+import { getCommodityDetail } from '@/service/apis/commodity'
+import { useParams } from 'react-router'
 
 const formConfig = [
   {
@@ -43,12 +44,20 @@ const formConfig = [
 ]
 
 const OrderCreate = () => {
-  const { selectedCommdity } = useGlobalState()
   const [totalPrice, setTotalPrice] = useState<string>('')
   const [amount, setAmount] = useState<number>(1)
+  const routeParams = useParams<{ sku: string }>()
+  const [commodity, setCommodity] = useState<Commodity>({} as Commodity)
   const [form] = Form.useForm()
+
+  useEffect(() => {
+    getCommodityDetail(routeParams.sku).then((data) => {
+      setCommodity(data)
+    })
+  }, [routeParams.sku])
+
   const handleFinish = (values) => {
-    const { sku, price } = selectedCommdity
+    const { sku, price } = commodity
     createOrder({ sku, price, ...values, totalPrice, number: amount })
       .then((data) => {
         const { status, id } = data
@@ -65,8 +74,8 @@ const OrderCreate = () => {
   }
 
   useEffect(() => {
-    setTotalPrice(sumCalculator(selectedCommdity.price, amount))
-  }, [selectedCommdity.price, amount])
+    setTotalPrice(sumCalculator(commodity.price, amount))
+  }, [commodity.price, amount])
 
   const handleSubmit = () => {
     form.submit()
@@ -80,7 +89,7 @@ const OrderCreate = () => {
       <div className={styles.commodityInfo}>
         <div className={styles.sectionTitle}>确认订单信息</div>
         <div className={styles.commodityContent}>
-          <CommodityInfo commodity={selectedCommdity} onAmountChange={setAmount} />
+          <CommodityInfo commodity={commodity} onAmountChange={setAmount} />
         </div>
       </div>
       <footer>

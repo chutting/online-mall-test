@@ -1,16 +1,9 @@
-import { Action, actions } from './actions'
+import { Action } from './actions'
 
-export type IState = {
-  selectedCommdity: Commodity
-}
+export type IState = {}
 
 const reducer = (state: IState, action: Action) => {
   switch (action.type) {
-    case actions.SET_COMMODITY:
-      return {
-        ...state,
-        selectedCommdity: action.payload,
-      }
     default:
       return state
   }

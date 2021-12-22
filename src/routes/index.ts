@@ -5,7 +5,7 @@ import OrderCreate from '@/pages/order-create'
 export enum ROUTE_PATH {
   HOME = '/',
   COMMODITY_DETAIL = '/commodity/:sku',
-  ORDER_CREATE = '/order-create',
+  ORDER_CREATE = '/order-create/:sku',
 }
 
 export const routerConfig = [
