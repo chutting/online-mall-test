@@ -1,4 +1,5 @@
 import { Form, FormInstance, Input, InputNumber } from 'antd'
+import { useCallback } from 'react'
 
 interface formItem {
   name: string[] | string
@@ -17,16 +18,24 @@ interface IProps {
 }
 
 const CustomForm = ({ formConfig, form, onFinish, className }: IProps) => {
+  const getFormItem = useCallback((config) => {
+    const { placeholder, type, rest } = config
+    switch (type) {
+      case 'input':
+        return <Input placeholder={placeholder} {...rest} />
+      case 'inputNumber':
+        return <InputNumber />
+      case 'textArea':
+        return <Input.TextArea placeholder={placeholder} {...rest} />
+    }
+  }, [])
+
   return (
     <Form form={form} onFinish={onFinish} labelCol={{ span: 5 }} labelAlign="left" className={className}>
       {formConfig.map(({ name, rules, placeholder, type, label, rest }) => (
         <div key={label}>
           <Form.Item label={label} name={name} rules={rules}>
-            <>
-              {type === 'input' && <Input placeholder={placeholder} {...rest} />}
-              {type === 'inputNumber' && <InputNumber />}
-              {type === 'textArea' && <Input.TextArea placeholder={placeholder} {...rest} />}
-            </>
+            {getFormItem({ placeholder, type, rest })}
           </Form.Item>
         </div>
       ))}

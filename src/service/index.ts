@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { message } from 'antd'
 
 const request = axios.create({
   baseURL: '/online-mall/api',
@@ -25,15 +26,15 @@ request.interceptors.response.use(
   },
   (e) => {
     if (e.response) {
-      const { status, data = {}, message } = e.response
+      const { status, data = {} } = e.response
 
-      message.error(message)
       return Promise.reject({
         status,
         ...data,
       })
     }
 
+    message.error('网络错误，请稍后重试')
     return Promise.reject(e)
   }
 )

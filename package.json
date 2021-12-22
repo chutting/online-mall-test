@@ -4,7 +4,7 @@
   "license": "ISC",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "serve": "vite preview",
     "test": "jest",
     "lint": "eslint 'src/**/*.{ts,tsx}' --fix"

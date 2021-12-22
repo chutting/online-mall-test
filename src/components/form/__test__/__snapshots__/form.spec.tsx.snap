@@ -31,6 +31,7 @@ exports[`form components test should take a snapshot 1`] = `
             >
               <input
                 class="ant-input"
+                id="field1"
                 placeholder="field1 mock placeholder"
                 type="text"
                 value=""
@@ -131,6 +132,7 @@ exports[`form components test should take a snapshot 1`] = `
                   <input
                     autocomplete="off"
                     class="ant-input-number-input"
+                    id="field2"
                     role="spinbutton"
                     step="1"
                     value=""

@@ -4,6 +4,7 @@
 
 ## Project setup
 
+- node版本：`^12.13.0`
 > ```yarn install```
 
 ## Compiles and hot-reloads for development
